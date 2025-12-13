@@ -1,0 +1,47 @@
+import Link from 'next/link';
+
+export default function TodoReadCP({ todo, queryObj }) {
+    return (
+        <div className="p-4 bg-white rounded-lg shadow-md max-w-lg mx-auto">
+            <h2 className="text-2xl font-bold mb-4 text-indigo-600">
+                TODO 상세 정보
+            </h2>
+            <div className="space-y-4">
+                <div className="p-3 bg-gray-100 rounded-md">
+                    <p className="text-sm text-gray-500">번호</p>
+                    <p className="text-lg font-semibold">{todo.tno}</p>
+                </div>
+                <div className="p-3 bg-gray-100 rounded-md">
+                    <p className="text-sm text-gray-500">제목</p>
+                    <p className="text-lg font-semibold">{todo.title}</p>
+                </div>
+                <div className="p-3 bg-gray-100 rounded-md">
+                    <p className="text-sm text-gray-500">작성자</p>
+                    <p className="text-lg font-semibold">{todo.writer}</p>
+                </div>
+                <div className="p-3 bg-gray-100 rounded-md">
+                    <p className="text-sm text-gray-500">완료 여부</p>
+                    <p
+                        className={`text-lg font-semibold ${
+                            todo.completed ? 'text-green-600' : 'text-red-500'
+                        }`}
+                    >
+                        {todo.completed ? '완료' : '미완료'}
+                    </p>
+                </div>
+                <div className="p-3 bg-gray-100 rounded-md">
+                    <p className="text-sm text-gray-500">생성일</p>
+                    <p className="text-lg font-semibold">{todo.createdData}</p>
+                </div>
+            </div>
+
+            <div className="mt-6 text-center">
+                <Link href={`/todo/list?${queryObj.toString()}`}>
+                    <button className="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        목록으로
+                    </button>
+                </Link>
+            </div>
+        </div>
+    );
+}
