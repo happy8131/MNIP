@@ -17,7 +17,7 @@ export default async function TodoListPage({ searchParams }: IParams) {
     );
     const result = await res.json();
 
-    console.log(page);
+    console.log(result);
 
     return (
         <div>
