@@ -17,3 +17,20 @@ export async function postTodo(prevState, formData) {
 
     return { result: 'success' };
 }
+
+export async function putTodo(prevState, formData) {
+    console.log('Edit Todo...');
+
+    const tno = formData.get('tno');
+
+    const res = await fetch(`http://localhost:8080/api/todos/${tno}`, {
+        method: 'PUT',
+        body: formData,
+    });
+
+    const serverResult = await res.json();
+
+    console.log(serverResult);
+
+    return { result: serverResult.tno };
+}
