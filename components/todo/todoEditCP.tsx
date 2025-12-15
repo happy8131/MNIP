@@ -7,12 +7,12 @@ import TodoDeleteModalCP from './todoDeleteModalCP';
 
 interface IParams {
     todo: {
-        tno: string;
+        tno: number;
         title: string;
         writer: string;
         completed: boolean;
     };
-    queryObj: string;
+    queryObj: URLSearchParams;
 }
 
 export default function TodoEditCP({ todo, queryObj }: IParams) {

@@ -1,8 +1,11 @@
 import TodoReadCP from '@/components/todo/todoReadCP';
 
+type PageParams = { [key: string]: string };
+type SearchParams = { [key: string]: string };
+
 interface IParams {
-    params: string;
-    searchParams: string;
+    params: Promise<PageParams>;
+    searchParams: Promise<SearchParams>;
 }
 
 export default async function TodoReadPage({ params, searchParams }: IParams) {

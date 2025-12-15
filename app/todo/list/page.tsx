@@ -1,7 +1,11 @@
 import TodoListCP from '@/components/todo/todoListCP';
 
+type PageParams = { [key: string]: string };
+type SearchParams = { [key: string]: string };
+
 interface IParams {
-    searchParams: string;
+    params: Promise<PageParams>;
+    searchParams: Promise<SearchParams>;
 }
 
 export default async function TodoListPage({ searchParams }: IParams) {

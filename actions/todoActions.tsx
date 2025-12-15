@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use server';
 
-export async function postTodo(prevState, formData) {
+export async function postTodo(prevState: any, formData: FormData) {
     console.log('PostTodo');
     console.log(formData);
 
-    formData.set('completed', false);
+    formData.set('completed', 'false');
 
     const res = await fetch('http://localhost:8080/api/todos', {
         method: 'POST',
@@ -18,7 +19,7 @@ export async function postTodo(prevState, formData) {
     return { result: 'success' };
 }
 
-export async function putTodo(prevState, formData) {
+export async function putTodo(prevState: any, formData: FormData) {
     console.log('Edit Todo...');
 
     const tno = formData.get('tno');
@@ -35,7 +36,7 @@ export async function putTodo(prevState, formData) {
     return { result: serverResult.tno };
 }
 
-export async function deleteTodo(prevState, formData) {
+export async function deleteTodo(prevState: any, formData: FormData) {
     console.log('Edit Todo...');
 
     const tno = formData.get('tno');
