@@ -1,6 +1,14 @@
 import TodoEditCP from '@/components/todo/todoEditCP';
 
-export default async function TodoEditPage({ params, searchParams }) {
+type PageParams = { [key: string]: string };
+type SearchParams = { [key: string]: string };
+
+interface IParams {
+    params: Promise<PageParams>;
+    searchParams: Promise<SearchParams>;
+}
+
+export default async function TodoEditPage({ params, searchParams }: IParams) {
     //params:동적경로, searchPArams:라이팅경로
 
     const paramObj = await params;

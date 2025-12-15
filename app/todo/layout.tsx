@@ -1,6 +1,10 @@
 import Link from 'next/link';
 
-export default function TodoLayout({ children }) {
+type LayoutProps = {
+    children: React.ReactNode;
+};
+
+export default function TodoLayout({ children }: LayoutProps) {
     return (
         <div className="flex flex-col min-h-screen bg-gray-100 text-gray-800">
             {/*헤더 메뉴*/}
@@ -34,7 +38,7 @@ export default function TodoLayout({ children }) {
                     </nav>
                 </div>
             </header>
-            <main className="flex-grow p-4 max-w-2xl mx-auto w-full">
+            <main className="grow p-4 max-w-2xl mx-auto w-full">
                 {children}
             </main>
         </div>

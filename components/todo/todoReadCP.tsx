@@ -1,6 +1,17 @@
 import Link from 'next/link';
 
-export default function TodoReadCP({ todo, queryObj }) {
+interface IParams {
+    todo: {
+        tno: number;
+        title: string;
+        writer: string;
+        completed: boolean;
+        createdData: string;
+    };
+    queryObj: URLSearchParams;
+}
+
+export default function TodoReadCP({ todo, queryObj }: IParams) {
     return (
         <div className="p-4 bg-white rounded-lg shadow-md max-w-lg mx-auto">
             <h2 className="text-2xl font-bold mb-4 text-indigo-600">

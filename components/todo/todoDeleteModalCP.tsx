@@ -1,9 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import { deleteTodo } from '@/actions/todoActions';
 import { useActionState, useEffect } from 'react';
 
-export default function TodoDeleteModalCP({ tno, onClose, changeShow }) {
+interface IParams {
+    tno: number;
+    onClose: () => void;
+    changeShow: (num: boolean) => void;
+}
+
+export default function TodoDeleteModalCP({
+    tno,
+    onClose,
+    changeShow,
+}: IParams) {
     const [deleteState, deleteAction, deletePending] = useActionState(
         deleteTodo,
         { result: '' }
