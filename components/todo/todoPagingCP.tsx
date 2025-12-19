@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 interface IParams {
     totalCount: number;
-    page: number;
-    size: number;
+    page?: number;
+    size?: number;
 }
 
 export default function TodoPagingCP({ totalCount, page, size }: IParams) {
