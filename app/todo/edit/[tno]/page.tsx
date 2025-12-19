@@ -9,7 +9,7 @@ interface IParams {
 }
 
 export default async function TodoEditPage({ params, searchParams }: IParams) {
-    //params:동적경로, searchPArams:라이팅경로
+    //params:동적 경로 처리시 변수 처리, searchParams:주소창의 쿼리 스트링 처리
 
     const paramObj = await params;
 

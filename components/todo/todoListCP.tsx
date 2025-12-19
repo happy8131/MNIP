@@ -1,8 +1,26 @@
 import Link from 'next/link';
 import TodoPagingCP from './todoPagingCP';
 
+interface Todo {
+    tno: number;
+    title: string;
+    writer: string;
+    completed: boolean;
+    createdDate: string;
+}
+
+interface TodoData {
+    list: Todo[];
+    total: number;
+}
+
+interface IParams {
+    data: TodoData;
+    queryObj: URLSearchParams;
+}
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function TodoListCP({ data, queryObj }: any) {
+export default function TodoListCP({ data, queryObj }: IParams) {
     const { list, total } = data;
 
     return (
